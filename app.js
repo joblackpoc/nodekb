@@ -13,10 +13,38 @@ app.set('view engine', 'pug');
 });
 */
 app.get('/',function(req, res){
+  let articles = [
+    {
+      id:1,
+      title:'Article One',
+      author:'Joblackpoc',
+      body:'This is article one'
+    },
+    {
+      id:2,
+      title:'Article Two',
+      author:'Joblackpoc',
+      body:'This is article two'
+    },
+    {
+      id:3,
+      title:'Article Three',
+      author:'Joblackpoc',
+      body:'This is article three'
+    }
+  ];
     res.render('index',{
-      title:'Hello world World'
+      title:'Articles',
+      articles:articles
     });
 });
+//Add Route
+app.get('/articles/add', function(req, res){
+  res.render('add_article',{
+    title:'Add article'
+  });
+});
+
 // Start Server
 app.listen(3000, function(){
   console.log('Server start on port 3000...');
